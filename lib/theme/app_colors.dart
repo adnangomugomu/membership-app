@@ -1,0 +1,15 @@
+import 'package:flutter/material.dart';
+
+class AppColors {
+  AppColors._();
+
+  //Brand
+  static const Color primary = Color(111111);
+  static const Color secondary = Color(0xFFBBBFC4);
+  static const Color primary_text = Color(111111);
+  static const Color secondary_text = Color(646464);
+  static const Color tersiery_text = Color (0xffFFFFFF);
+  static const Color background = Color (0xffFFFFFF);
+  static const Color buttonBackground = Color.fromARGB(255, 0, 0, 0);
+  static const Color buttonText = Colors.white;
+}
