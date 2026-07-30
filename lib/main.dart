@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ifixied_membership_app/theme/app_theme.dart';
 
 import 'ui/components/app_button.dart';
+import 'ui/components/app_text_field.dart';
 
 import 'theme/app_colors.dart';
 
@@ -21,7 +22,6 @@ class MyApp extends StatelessWidget {
 
       home: Scaffold(
         appBar: AppBar(title: const Text('Component Test')),
-
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -33,6 +33,10 @@ class MyApp extends StatelessWidget {
                 },
               ),
               AppButton(onPressed: null, text: 'testing disabled button'),
+              AppTextField(
+                label: 'Test field',
+                hintText: "Fill with anything",
+              )
             ],
           ),
         ),

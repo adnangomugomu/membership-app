@@ -11,9 +11,7 @@ class AppTheme {
 
     scaffoldBackgroundColor: Colors.white,
 
-    textTheme: GoogleFonts.poppinsTextTheme(
-      ThemeData.light().textTheme,
-    ),
+    textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -21,7 +19,22 @@ class AppTheme {
         foregroundColor: AppColors.buttonText,
 
         disabledBackgroundColor: AppColors.disabledbuttonbackground,
-        disabledForegroundColor: AppColors.buttonText
+        disabledForegroundColor: AppColors.buttonText,
+      ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+      labelStyle: TextStyle(
+        color: AppColors.primary
+      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: AppColors.primary),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: AppColors.primary),
       ),
     ),
   );
