@@ -19,6 +19,9 @@ class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.buttonBackground,
         foregroundColor: AppColors.buttonText,
+
+        disabledBackgroundColor: AppColors.disabledbuttonbackground,
+        disabledForegroundColor: AppColors.buttonText
       ),
     ),
   );

@@ -12,4 +12,5 @@ class AppColors {
   static const Color background = Color (0xffFFFFFF);
   static const Color buttonBackground = Color.fromARGB(255, 0, 0, 0);
   static const Color buttonText = Colors.white;
+  static const Color disabledbuttonbackground = Color(0xff9F9F9F);
 }
