@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ifixied_membership_app/theme/app_theme.dart';
+import 'package:ifixied_membership_app/ui/components/app_bar_component.dart';
+import 'package:ifixied_membership_app/ui/components/app_navigation_bar.dart';
 
 import 'ui/components/app_button.dart';
 import 'ui/components/app_text_field.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
 
       home: Scaffold(
-        appBar: AppBar(title: const Text('Component Test')),
+        appBar: AppBarComponent(title: "AppBarTest"),
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -40,6 +42,7 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
+        bottomNavigationBar: AppNavigationBar(currentIndex: 0),
       ),
     );
   }

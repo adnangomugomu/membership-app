@@ -13,6 +13,10 @@ class AppTheme {
 
     textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme),
 
+    appBarTheme: AppBarTheme(
+      foregroundColor: const Color.fromARGB(255, 255, 250, 250),
+    ),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.buttonBackground,
