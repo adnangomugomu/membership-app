@@ -43,6 +43,7 @@ class _AuthPageState extends State<AuthPage> {
                         context.go('/test_page');
                       },
                     ),
+                    AppSpacing.sm,
                     AppButton(
                       text: 'Daftar Sekarang',
                       onPressed: () {

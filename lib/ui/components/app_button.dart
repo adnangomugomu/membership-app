@@ -17,6 +17,7 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
+      height: 50,
       child: ElevatedButton(
         onPressed: onPressed,
         child: Text(text),
@@ -24,6 +25,10 @@ class AppButton extends StatelessWidget {
             ? ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: AppColors.buttonBackground,
+                side: const BorderSide(
+                  color: AppColors.buttonBackground,
+                  width: 1
+                )
               )
             : null,
       ),
