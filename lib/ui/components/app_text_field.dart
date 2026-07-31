@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
-  final String? label;
+  final String label;
   final String? hintText;
   final TextEditingController? controller;
   final bool obscureText;
@@ -14,7 +14,7 @@ class AppTextField extends StatelessWidget {
 
   const AppTextField({
     super.key,
-    this.label,
+    required this.label,
     this.hintText,
     this.controller,
     this.obscureText = false,
@@ -30,19 +30,26 @@ class AppTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: TextFormField(
-        controller: controller,
-        obscureText: obscureText,
-        enabled: enabled,
-        keyboardType: keyboardType,
-        validator: validator,
-        onChanged: onChanged,
-        decoration: InputDecoration(
-          labelText: label,
-          hintText: hintText,
-          prefixIcon: prefixIcon,
-          suffixIcon: suffixIcon,
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(padding: const EdgeInsetsGeometry.symmetric(horizontal : 10),
+          child: Text(label),),
+          TextFormField(
+            controller: controller,
+            obscureText: obscureText,
+            enabled: enabled,
+            keyboardType: keyboardType,
+            validator: validator,
+            onChanged: onChanged,
+            decoration: InputDecoration(
+              // labelText: label,
+              hintText: hintText,
+              prefixIcon: prefixIcon,
+              suffixIcon: suffixIcon,
+            ),
+          ),
+        ],
       ),
     );
   }
