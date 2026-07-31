@@ -47,7 +47,7 @@ class _AuthPageState extends State<AuthPage> {
                     AppButton(
                       text: 'Daftar Sekarang',
                       onPressed: () {
-                        context.go('/test_page');
+                        context.go('/register_page');
                       },
                       isReversed: true,
                     ),
