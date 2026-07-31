@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:ifixied_membership_app/ui/components/app_bar_component.dart';
 import 'package:ifixied_membership_app/ui/components/app_navigation_bar.dart';
@@ -21,7 +22,7 @@ class TestPage extends StatelessWidget {
             AppButton(
               text: 'Testing button long',
               onPressed: () {
-                print('Button clicked');
+                context.go('/auth_page');
               },
             ),
             AppButton(
