@@ -8,14 +8,14 @@ import 'package:ifixied_membership_app/ui/components/app_checkbox.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_field.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_wrapper.dart';
 
-class RegisterPage2 extends StatefulWidget {
-  const RegisterPage2({super.key});
+class RegisterPage3 extends StatefulWidget {
+  const RegisterPage3({super.key});
 
   @override
-  State<RegisterPage2> createState() => _RegisterPage2();
+  State<RegisterPage3> createState() => _RegisterPage3();
 }
 
-class _RegisterPage2 extends State<RegisterPage2> {
+class _RegisterPage3 extends State<RegisterPage3> {
   bool isApproved = false;
 
   @override
@@ -38,17 +38,17 @@ class _RegisterPage2 extends State<RegisterPage2> {
                 textAlign: TextAlign.left,
               ),
               AppSpacing.lg,
-              AppTextField(label: 'Nama Lengkap', hintText: 'Kobo Kanaeru'),
+              AppTextField(label: 'Password', hintText: 'Masukkan Password'),
               AppSpacing.lg,
               AppTextField(
-                label: 'Nomor Ponsel',
-                hintText: 'Contoh: 085XXXXXXXXX',
+                label: 'Konfirmasi Password',
+                hintText: 'Ulangi Password',
               ),
               AppSpacing.lg,
               AppButton(
                 text: 'Lanjutkan',
                 onPressed: () {
-                  context.go('/register_page_3');
+                  context.go('/test_page');
                 },
               ),
             ],
