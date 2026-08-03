@@ -40,7 +40,7 @@ class _AuthPageState extends State<AuthPage> {
                     AppButton(
                       text: 'Masuk',
                       onPressed: () {
-                        context.go('/test_page');
+                        context.go('/login_page/phone');
                       },
                     ),
                     AppSpacing.sm,

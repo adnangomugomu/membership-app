@@ -5,7 +5,9 @@ import 'package:ifixied_membership_app/ui/components/app_bar_component.dart';
 import 'package:ifixied_membership_app/ui/components/app_bar_cupertino_sliding_bar.dart';
 import 'package:ifixied_membership_app/ui/components/app_navigation_bar.dart';
 import 'package:ifixied_membership_app/ui/components/app_button.dart';
+import 'package:ifixied_membership_app/ui/components/app_otp_field.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_field.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});
@@ -20,9 +22,7 @@ class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarComponent(
-        title: 'AppBarTest',
-      ),
+      appBar: const AppBarComponent(title: 'AppBarTest'),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -34,15 +34,15 @@ class _TestPageState extends State<TestPage> {
               },
             ),
 
+            AppButton(onPressed: null, text: 'Testing disabled button'),
+
             AppButton(
               onPressed: null,
-              text: 'Testing disabled button',
+              text: 'Testing with icon',
+              icon: const FaIcon(FontAwesomeIcons.google),
             ),
 
-            AppTextField(
-              label: 'Test field',
-              hintText: 'Fill with anything',
-            ),
+            AppTextField(label: 'Test field', hintText: 'Fill with anything'),
 
             AppBarCupertinoSlidingBar<String>(
               groupValue: selected,
@@ -58,12 +58,15 @@ class _TestPageState extends State<TestPage> {
                 'VestiaZeta': Text('Vestia Zeta'),
               },
             ),
+            AppOtpField(
+              onCompleted: (otp) {
+                print('OTP: $otp');
+              },
+            ),
           ],
         ),
       ),
-      bottomNavigationBar: const AppNavigationBar(
-        currentIndex: 0,
-      ),
+      bottomNavigationBar: const AppNavigationBar(currentIndex: 0),
     );
   }
 }

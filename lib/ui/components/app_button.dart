@@ -5,12 +5,14 @@ class AppButton extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
   final bool isReversed;
+  final Widget? icon;
 
   const AppButton({
     super.key,
     required this.text,
     required this.onPressed,
     this.isReversed = false,
+    this.icon,
   });
 
   @override
@@ -20,17 +22,27 @@ class AppButton extends StatelessWidget {
       height: 50,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Text(text),
         style: isReversed
             ? ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: AppColors.buttonBackground,
                 side: const BorderSide(
                   color: AppColors.buttonBackground,
-                  width: 1
-                )
+                  width: 1,
+                ),
               )
             : null,
+        child: icon != null
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  icon!,
+                  const SizedBox(width: 8),
+                  Text(text),
+                ],
+              )
+            : Text(text),
       ),
     );
   }

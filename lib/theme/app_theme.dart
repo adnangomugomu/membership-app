@@ -26,6 +26,7 @@ class AppTheme {
         disabledForegroundColor: AppColors.buttonText,
       ),
     ),
+    
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(horizontal: 10),
       labelStyle: TextStyle(

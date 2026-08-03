@@ -1,10 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ifixied_membership_app/theme/app_spacing.dart';
 import 'package:ifixied_membership_app/ui/components/app_button.dart';
-import 'package:ifixied_membership_app/ui/components/app_checkbox.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_field.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_wrapper.dart';
 
@@ -56,6 +53,5 @@ class _RegisterPage2 extends State<RegisterPage2> {
         ),
       ),
     );
-    throw UnimplementedError();
   }
 }
