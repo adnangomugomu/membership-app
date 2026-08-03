@@ -28,9 +28,7 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(padding: const EdgeInsetsGeometry.symmetric(horizontal : 10),
@@ -50,7 +48,6 @@ class AppTextField extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
+      );
   }
 }
