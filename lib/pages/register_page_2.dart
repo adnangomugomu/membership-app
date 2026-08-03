@@ -8,14 +8,14 @@ import 'package:ifixied_membership_app/ui/components/app_checkbox.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_field.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_wrapper.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class RegisterPage2 extends StatefulWidget {
+  const RegisterPage2({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPage();
+  State<RegisterPage2> createState() => _RegisterPage2();
 }
 
-class _RegisterPage extends State<RegisterPage> {
+class _RegisterPage2 extends State<RegisterPage2> {
   bool isApproved = false;
 
   @override
@@ -38,34 +38,17 @@ class _RegisterPage extends State<RegisterPage> {
                 textAlign: TextAlign.left,
               ),
               AppSpacing.lg,
-              AppTextField(label: 'Email', hintText: 'Masukkan Email'),
-              AppSpacing.lg,
-              AppTextWrapper.heading(
-                'Apakah anda punya kode referral?',
-                textAlign: TextAlign.left,
-              ),
+              AppTextField(label: 'Nama Lengkap', hintText: 'Kobo Kanaeru'),
               AppSpacing.lg,
               AppTextField(
-                label: 'Kode Referral (opsional)',
-                hintText: 'Contoh: MYIF5xxxx',
-              ),
-              AppSpacing.lg,
-              AppCheckbox(
-                value: isApproved,
-                onChanged: (value) {
-                  setState(() {
-                    isApproved = value ?? false;
-                  });
-                },
-                label: const Text(
-                  'Saya menyetujui ketentuan layanan & Kebijakan privasi MyIfixied',
-                ),
+                label: 'Nomor Ponsel',
+                hintText: 'Contoh: 085XXXXXXXXX',
               ),
               AppSpacing.lg,
               AppButton(
                 text: 'Lanjutkan',
                 onPressed: () {
-                  context.go('/register_page_2');
+                  context.go('/test_page');
                 },
               ),
             ],
