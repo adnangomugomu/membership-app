@@ -15,34 +15,43 @@ class PromoCarousel extends StatefulWidget {
     this.imageList,
     this.onTap,
     this.height = 240.0,
-    this.isAsset = false,
+    this.isAsset = true,
     this.autoScroll = true,
-    this.autoScrollDuration = const Duration(seconds: 5),
+    this.autoScrollDuration =
+        const Duration(seconds: 5),
   });
 
   @override
-  State<PromoCarousel> createState() => _PromoCarouselState();
+  State<PromoCarousel> createState() =>
+      _PromoCarouselState();
 }
 
-class _PromoCarouselState extends State<PromoCarousel> {
+class _PromoCarouselState
+    extends State<PromoCarousel> {
   late PageController _pageController;
 
   int _currentIndex = 0;
 
   Timer? _timer;
 
-  // Dummy banner sementara.
-  // Nanti bisa diganti dengan data dari API.
+  // ==============================
+  // Dummy Promo Banner
+  // ==============================
+
   final List<String> dummyPromoBanners = const [
-    'https://images.unsplash.com/photo-1607083206968-13611e3d76db',
-    'https://images.unsplash.com/photo-1607082349566-187342175e2f',
-    'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d',
+    'assets/image/promo_banner_1.png',
+    'assets/image/promo_banner_2.png',
+    'assets/image/promo_banner_3.png',
   ];
 
-  // Gunakan imageList dari luar jika tersedia.
-  // Jika tidak ada, gunakan dummy data.
+  // ==============================
+  // Gunakan data dari luar jika ada
+  // Jika tidak ada, gunakan dummy
+  // ==============================
+
   List<String> get banners {
-    return widget.imageList ?? dummyPromoBanners;
+    return widget.imageList ??
+        dummyPromoBanners;
   }
 
   @override
@@ -54,7 +63,8 @@ class _PromoCarouselState extends State<PromoCarousel> {
       initialPage: 0,
     );
 
-    if (widget.autoScroll && banners.length > 1) {
+    if (widget.autoScroll &&
+        banners.length > 1) {
       _startAutoScroll();
     }
   }
@@ -64,9 +74,11 @@ class _PromoCarouselState extends State<PromoCarousel> {
       widget.autoScrollDuration,
       (timer) {
         if (_pageController.hasClients) {
-          int nextPage = _currentIndex + 1;
+          int nextPage =
+              _currentIndex + 1;
 
-          if (nextPage >= banners.length) {
+          if (nextPage >=
+              banners.length) {
             nextPage = 0;
           }
 
@@ -99,62 +111,96 @@ class _PromoCarouselState extends State<PromoCarousel> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        // ==============================
         // Promo Carousel
+        // ==============================
+
         SizedBox(
           height: widget.height,
           child: PageView.builder(
             controller: _pageController,
             itemCount: banners.length,
+
             onPageChanged: (index) {
               setState(() {
                 _currentIndex = index;
               });
             },
-            itemBuilder: (context, index) {
+
+            itemBuilder:
+                (context, index) {
               return GestureDetector(
                 onTap: () {
-                  widget.onTap?.call(index);
+                  widget.onTap
+                      ?.call(index);
                 },
+
                 child: Container(
-                  margin: const EdgeInsets.symmetric(
+                  margin:
+                      const EdgeInsets
+                          .symmetric(
                     horizontal: 6.0,
                   ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
+
+                  decoration:
+                      BoxDecoration(
+                    borderRadius:
+                        BorderRadius
+                            .circular(
                       24.0,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.12),
+                        color: Colors.black
+                            .withOpacity(
+                          0.12,
+                        ),
                         blurRadius: 12,
-                        offset: const Offset(0, 6),
+                        offset:
+                            const Offset(
+                          0,
+                          6,
+                        ),
                       ),
                     ],
                   ),
+
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(
+                    borderRadius:
+                        BorderRadius
+                            .circular(
                       24.0,
                     ),
+
+                    // ==============================
+                    // Local Asset / Network Image
+                    // ==============================
+
                     child: widget.isAsset
                         ? Image.asset(
                             banners[index],
-                            fit: BoxFit.cover,
+                            fit: BoxFit.contain,
+
+                            errorBuilder:
+                                (
+                              context,
+                              error,
+                              stackTrace,
+                            ) {
+                              return _errorImage();
+                            },
                           )
                         : Image.network(
                             banners[index],
-                            fit: BoxFit.cover,
+                            fit: BoxFit.contain,
+
                             errorBuilder:
-                                (context, error, stackTrace) {
-                              return Container(
-                                color: Colors.grey[900],
-                                child: const Center(
-                                  child: Icon(
-                                    Icons.broken_image,
-                                    color: Colors.grey,
-                                    size: 48,
-                                  ),
-                                ),
-                              );
+                                (
+                              context,
+                              error,
+                              stackTrace,
+                            ) {
+                              return _errorImage();
                             },
                           ),
                   ),
@@ -166,27 +212,41 @@ class _PromoCarouselState extends State<PromoCarousel> {
 
         const SizedBox(height: 14),
 
+        // ==============================
         // Indicator Dots
+        // ==============================
+
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment:
+              MainAxisAlignment.center,
           children: List.generate(
             banners.length,
-            (index) => AnimatedContainer(
-              duration: const Duration(
+            (index) =>
+                AnimatedContainer(
+              duration:
+                  const Duration(
                 milliseconds: 300,
               ),
-              margin: const EdgeInsets.symmetric(
+              margin:
+                  const EdgeInsets
+                      .symmetric(
                 horizontal: 4.0,
               ),
-              width: _currentIndex == index
-                  ? 24.0
-                  : 8.0,
+              width:
+                  _currentIndex == index
+                      ? 24.0
+                      : 8.0,
               height: 8.0,
-              decoration: BoxDecoration(
-                color: _currentIndex == index
-                    ? Colors.black
-                    : Colors.grey[300],
-                borderRadius: BorderRadius.circular(
+              decoration:
+                  BoxDecoration(
+                color:
+                    _currentIndex ==
+                            index
+                        ? Colors.black
+                        : Colors.grey[300],
+                borderRadius:
+                    BorderRadius
+                        .circular(
                   4.0,
                 ),
               ),
@@ -194,6 +254,23 @@ class _PromoCarouselState extends State<PromoCarousel> {
           ),
         ),
       ],
+    );
+  }
+
+  // ==============================
+  // Error Image
+  // ==============================
+
+  Widget _errorImage() {
+    return Container(
+      color: Colors.grey[900],
+      child: const Center(
+        child: Icon(
+          Icons.broken_image,
+          color: Colors.grey,
+          size: 48,
+        ),
+      ),
     );
   }
 }
