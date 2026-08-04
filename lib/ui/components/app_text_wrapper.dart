@@ -16,14 +16,16 @@ class AppTextWrapper extends StatelessWidget {
     String text, {
     Key? key,
     TextAlign? textAlign,
+    Color? color,
   }) {
     return AppTextWrapper._(
       key: key,
       text: text,
       textAlign: textAlign,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 23,
         fontWeight: FontWeight.bold,
+        color: color,
       ),
     );
   }
@@ -32,14 +34,16 @@ class AppTextWrapper extends StatelessWidget {
     String text, {
     Key? key,
     TextAlign? textAlign,
+    Color? color,
   }) {
     return AppTextWrapper._(
       key: key,
       text: text,
       textAlign: textAlign,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w600,
+        color: color,
       ),
     );
   }
@@ -48,13 +52,15 @@ class AppTextWrapper extends StatelessWidget {
     String text, {
     Key? key,
     TextAlign? textAlign,
+    Color? color,
   }) {
     return AppTextWrapper._(
       key: key,
       text: text,
       textAlign: textAlign,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 13,
+        color: color,
       ),
     );
   }

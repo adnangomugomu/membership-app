@@ -8,8 +8,8 @@ import 'package:ifixied_membership_app/pages/Login/login_page_phone.dart';
 import 'package:ifixied_membership_app/pages/RegisterPage/register_page.dart';
 import 'package:ifixied_membership_app/pages/RegisterPage/register_page_2.dart';
 import 'package:ifixied_membership_app/pages/RegisterPage/register_page_3.dart';
-
-import '../Pages/test_page.dart';
+import 'package:ifixied_membership_app/pages/TestPage/card_test_page.dart';
+import 'package:ifixied_membership_app/pages/TestPage/test_page.dart';
 import '../pages/auth_page.dart';
 
 final appRouter = GoRouter(
@@ -18,6 +18,11 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/test_page',
       builder: (context, state) => const TestPage(),
+    ),
+
+    GoRoute(
+      path: '/test_page/card',
+      builder: (context, state) => const CardTestPage(),
     ),
 
     GoRoute(

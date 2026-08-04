@@ -34,7 +34,7 @@ class _TestPageState extends State<TestPage> {
               },
             ),
 
-            AppButton(onPressed: null, text: 'Testing disabled button'),
+            AppButton(text: 'Card test page', onPressed: (){context.go("/test_page/card");}),
 
             AppButton(
               onPressed: null,
