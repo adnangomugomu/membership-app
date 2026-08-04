@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ifixied_membership_app/pages/home_page.dart';
 
 import 'package:ifixied_membership_app/ui/components/app_bar_component.dart';
 import 'package:ifixied_membership_app/ui/components/app_bar_cupertino_sliding_bar.dart';
@@ -8,6 +9,7 @@ import 'package:ifixied_membership_app/ui/components/app_button.dart';
 import 'package:ifixied_membership_app/ui/components/app_otp_field.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_field.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ifixied_membership_app/ui/components/bar/app_bar_user.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});
@@ -22,7 +24,7 @@ class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarComponent(title: 'AppBarTest'),
+      appBar: const AppBarUser(),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -37,9 +39,9 @@ class _TestPageState extends State<TestPage> {
             AppButton(text: 'Card test page', onPressed: (){context.go("/test_page/card");}),
 
             AppButton(
-              onPressed: null,
-              text: 'Testing with icon',
-              icon: const FaIcon(FontAwesomeIcons.google),
+              onPressed: (){context.go('/home_page');},
+              text: 'HomePage',
+              icon: const FaIcon(FontAwesomeIcons.house),
             ),
 
             AppTextField(label: 'Test field', hintText: 'Fill with anything'),

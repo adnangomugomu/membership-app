@@ -10,25 +10,20 @@ import 'package:ifixied_membership_app/pages/RegisterPage/register_page_2.dart';
 import 'package:ifixied_membership_app/pages/RegisterPage/register_page_3.dart';
 import 'package:ifixied_membership_app/pages/TestPage/card_test_page.dart';
 import 'package:ifixied_membership_app/pages/TestPage/test_page.dart';
+import 'package:ifixied_membership_app/pages/home_page.dart';
 import '../pages/auth_page.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/test_page',
   routes: [
-    GoRoute(
-      path: '/test_page',
-      builder: (context, state) => const TestPage(),
-    ),
+    GoRoute(path: '/test_page', builder: (context, state) => const TestPage()),
 
     GoRoute(
       path: '/test_page/card',
       builder: (context, state) => const CardTestPage(),
     ),
 
-    GoRoute(
-      path: '/auth_page',
-      builder: (context, state) => const AuthPage(),
-    ),
+    GoRoute(path: '/auth_page', builder: (context, state) => const AuthPage()),
 
     GoRoute(
       path: '/register_page',
@@ -49,13 +44,12 @@ final appRouter = GoRouter(
       path: '/login_page/otp',
       builder: (context, state) => const LoginOtpPage(),
     ),
+    GoRoute(path: '/home_page', builder: (context, state) => const HomePage()),
 
     // Login Shell
     ShellRoute(
       builder: (context, state, child) {
-        return LoginPage(
-          child: child,
-        );
+        return LoginPage(child: child);
       },
       routes: [
         GoRoute(

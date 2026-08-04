@@ -6,10 +6,12 @@ class FlashSaleCarousel extends StatefulWidget {
   const FlashSaleCarousel({super.key});
 
   @override
-  State<FlashSaleCarousel> createState() => _FlashSaleCarouselState();
+  State<FlashSaleCarousel> createState() =>
+      _FlashSaleCarouselState();
 }
 
-class _FlashSaleCarouselState extends State<FlashSaleCarousel> {
+class _FlashSaleCarouselState
+    extends State<FlashSaleCarousel> {
   final List<Map<String, dynamic>> dummyProducts = const [
     {
       'imageUrl':
@@ -62,34 +64,49 @@ class _FlashSaleCarouselState extends State<FlashSaleCarousel> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+
+      // Jarak container dari pinggir layar
+      margin: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
+
+      padding: const EdgeInsets.all(16),
+
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         image: const DecorationImage(
-          image: AssetImage('assets/image/Header.png'),
+          image: AssetImage(
+            'assets/image/Header.png',
+          ),
           fit: BoxFit.cover,
         ),
       ),
-      padding: const EdgeInsets.all(16),
+
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment:
+            CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           // Header Flash Sale
           Row(
-  mainAxisSize: MainAxisSize.min,
-  children: [
-    Image(
-      image: const AssetImage('assets/image/flash_sale_icon.png'),
-      width: 60,
-      fit: BoxFit.contain,
-    ),
-    const SizedBox(width: 8),
-    AppTextWrapper.heading(
-      'Flash sale',
-      color: Colors.white,
-    ),
-  ],
-),
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image(
+                image: const AssetImage(
+                  'assets/image/flash_sale_icon.png',
+                ),
+                width: 60,
+                fit: BoxFit.contain,
+              ),
+
+              const SizedBox(width: 8),
+
+              AppTextWrapper.heading(
+                'Flash Sale Now!',
+                color: Colors.white,
+              ),
+            ],
+          ),
 
           const SizedBox(height: 16),
 
@@ -99,14 +116,22 @@ class _FlashSaleCarouselState extends State<FlashSaleCarousel> {
             child: Row(
               children: dummyProducts.map((product) {
                 return Padding(
-                  padding: const EdgeInsets.only(right: 16),
+                  padding: const EdgeInsets.only(
+                    right: 16,
+                  ),
                   child: AppProductCard(
-                    imageUrl: product['imageUrl'],
-                    title: product['title'],
-                    currentPrice: product['currentPrice'],
-                    originalPrice: product['originalPrice'],
-                    stockProgress: product['stockProgress'],
-                    stockStatus: product['stockStatus'],
+                    imageUrl:
+                        product['imageUrl'],
+                    title:
+                        product['title'],
+                    currentPrice:
+                        product['currentPrice'],
+                    originalPrice:
+                        product['originalPrice'],
+                    stockProgress:
+                        product['stockProgress'],
+                    stockStatus:
+                        product['stockStatus'],
                     onTap: () {
                       debugPrint(
                         '${product['title']} diklik',
