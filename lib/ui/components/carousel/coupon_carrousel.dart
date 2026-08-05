@@ -32,9 +32,9 @@ class _CouponCarrouselState extends State<CouponCarrousel> {
   // Dummy data sementara.
   // Nanti bisa diganti dengan data dari API.
   final List<String> dummyPromoBanners = const [
-    'https://images.unsplash.com/photo-1607083206968-13611e3d76db',
-    'https://images.unsplash.com/photo-1607082349566-187342175e2f',
-    'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnFiYou3TsLmjrRZgyB7GZvHIzg6ZDC5rsht_lHnExxXCD92GjUycp5dw&s=10',
+    'https://media.suara.com/pictures/1600x840/2024/07/16/24085-kobo-kanaeru.jpg',
+    'https://imgsrv2.voi.id/aiBVLOzqlQpny5FsOPGmB1rA0J2cfACnkqfHFpH0fhM/auto/1200/675/sm/1/bG9jYWw6Ly8vcHVibGlzaGVycy8zNjkyOTMvMjAyNDAzMjgxMjU0LW1haW4uY3JvcHBlZF8xNzExNjA1MzAwLmpwZw.jpg',
   ];
 
   // Data yang digunakan carousel.

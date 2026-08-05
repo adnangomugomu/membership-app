@@ -5,7 +5,6 @@ import 'package:ifixied_membership_app/ui/components/carousel/coupon_carrousel.d
 import 'package:ifixied_membership_app/ui/components/carousel/flash_sale_carousel.dart';
 import 'package:ifixied_membership_app/ui/components/carousel/promo_carrousel.dart';
 import 'package:ifixied_membership_app/ui/components/carousel/store_location_carrousel.dart';
-import 'package:ifixied_membership_app/ui/components/app_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,9 +17,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Membuat body berada di belakang bottom navbar
-      extendBody: true,
-
       backgroundColor: Colors.white,
 
       appBar: const AppBarUser(),
@@ -33,33 +29,26 @@ class _HomePageState extends State<HomePage> {
           physics: const ClampingScrollPhysics(),
           child: Column(
             children: [
-              // Supaya konten tidak ketutup AppBar
               const SizedBox(height: 16),
 
-              PromoCarousel(),
+              const PromoCarousel(),
 
               AppSpacing.lg,
 
-              FlashSaleCarousel(),
+              const FlashSaleCarousel(),
 
               AppSpacing.lg,
 
-              CouponCarrousel(),
+              const CouponCarrousel(),
 
               AppSpacing.lg,
 
-              StoreCarousel(),
+              const StoreCarousel(),
 
-              // Tambahkan space supaya konten terakhir
-              // tidak tertutup navbar
               const SizedBox(height: 120),
             ],
           ),
         ),
-      ),
-
-      bottomNavigationBar: const AppNavigationBar(
-        currentIndex: 0,
       ),
     );
   }

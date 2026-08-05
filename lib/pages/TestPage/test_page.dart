@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ifixied_membership_app/pages/home_page.dart';
+import 'package:ifixied_membership_app/pages/MainPage/home_page.dart';
 
 import 'package:ifixied_membership_app/ui/components/app_bar_component.dart';
 import 'package:ifixied_membership_app/ui/components/app_bar_cupertino_sliding_bar.dart';
@@ -68,7 +68,6 @@ class _TestPageState extends State<TestPage> {
           ],
         ),
       ),
-      bottomNavigationBar: const AppNavigationBar(currentIndex: 0),
     );
   }
 }

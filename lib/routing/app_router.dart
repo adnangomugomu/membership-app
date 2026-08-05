@@ -4,13 +4,18 @@ import 'package:ifixied_membership_app/pages/Login/login_otp_page.dart';
 import 'package:ifixied_membership_app/pages/Login/login_page_email.dart';
 import 'package:ifixied_membership_app/pages/Login/login_page.dart';
 import 'package:ifixied_membership_app/pages/Login/login_page_phone.dart';
+import 'package:ifixied_membership_app/pages/MainPage/price_list_page.dart';
+import 'package:ifixied_membership_app/pages/MainPage/promo_page.dart';
+import 'package:ifixied_membership_app/pages/MainPage/receipt_page.dart';
+import 'package:ifixied_membership_app/pages/MainPage/tracking_page.dart';
 
 import 'package:ifixied_membership_app/pages/RegisterPage/register_page.dart';
 import 'package:ifixied_membership_app/pages/RegisterPage/register_page_2.dart';
 import 'package:ifixied_membership_app/pages/RegisterPage/register_page_3.dart';
 import 'package:ifixied_membership_app/pages/TestPage/card_test_page.dart';
 import 'package:ifixied_membership_app/pages/TestPage/test_page.dart';
-import 'package:ifixied_membership_app/pages/home_page.dart';
+import 'package:ifixied_membership_app/pages/MainPage/home_page.dart';
+import 'package:ifixied_membership_app/pages/main_shell_page.dart';
 import '../pages/auth_page.dart';
 
 final appRouter = GoRouter(
@@ -44,7 +49,6 @@ final appRouter = GoRouter(
       path: '/login_page/otp',
       builder: (context, state) => const LoginOtpPage(),
     ),
-    GoRoute(path: '/home_page', builder: (context, state) => const HomePage()),
 
     // Login Shell
     ShellRoute(
@@ -64,6 +68,58 @@ final appRouter = GoRouter(
           builder: (context, state) {
             return const LoginPagePhone();
           },
+        ),
+      ],
+    ),
+    // Main shell
+    StatefulShellRoute.indexedStack(
+      builder: (context, state, navigationShell) {
+        return MainShellPage(navigationShell: navigationShell);
+      },
+      branches: [
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/home_page',
+              builder: (context, state) => const HomePage(),
+            ),
+          ],
+        ),
+
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/promo',
+              builder: (context, state) => const PromoPage(),
+            ),
+          ],
+        ),
+
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/pricelist',
+              builder: (context, state) => const PriceListPage(),
+            ),
+          ],
+        ),
+
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/nota',
+              builder: (context, state) => const ReceiptPage(),
+            ),
+          ],
+        ),
+
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/tracking',
+              builder: (context, state) => const TrackingPage(),
+            ),
+          ],
         ),
       ],
     ),
