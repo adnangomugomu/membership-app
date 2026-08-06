@@ -11,6 +11,7 @@ class AppTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final ValueChanged<String>? onChanged;
+  final bool isSearchField;
 
   const AppTextField({
     super.key,
@@ -24,30 +25,36 @@ class AppTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.onChanged,
+    this.isSearchField = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(padding: const EdgeInsetsGeometry.symmetric(horizontal : 10),
-          child: Text(label),),
-          TextFormField(
-            controller: controller,
-            obscureText: obscureText,
-            enabled: enabled,
-            keyboardType: keyboardType,
-            validator: validator,
-            onChanged: onChanged,
-            decoration: InputDecoration(
-              // labelText: label,
-              hintText: hintText,
-              prefixIcon: prefixIcon,
-              suffixIcon: suffixIcon,
-            ),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (!isSearchField)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(label),
           ),
-        ],
-      );
+
+        TextFormField(
+          controller: controller,
+          obscureText: obscureText,
+          enabled: enabled,
+          keyboardType: keyboardType,
+          validator: validator,
+          onChanged: onChanged,
+          decoration: InputDecoration(
+            hintText: hintText,
+            prefixIcon: isSearchField
+                ? const Icon(Icons.search)
+                : prefixIcon,
+            suffixIcon: suffixIcon,
+          ),
+        ),
+      ],
+    );
   }
 }

@@ -62,7 +62,7 @@ class _TrackingPage extends State<TrackingPage> {
           child: Column(
             children: [
               AppSpacing.xl,
-              AppTextField(label: "Search",hintText: "Masukkan nomor invoice"),
+              AppTextField(label: "Search",hintText: "Masukkan nomor invoice", isSearchField: true,),
               AppSpacing.xl,
               Column(
                 children: dummyServices

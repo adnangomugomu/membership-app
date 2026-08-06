@@ -10,6 +10,7 @@ import 'package:ifixied_membership_app/ui/components/app_otp_field.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_field.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ifixied_membership_app/ui/components/bar/app_bar_user.dart';
+import 'package:ifixied_membership_app/ui/components/carousel/button_carrousel.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});
@@ -36,10 +37,31 @@ class _TestPageState extends State<TestPage> {
               },
             ),
 
-            AppButton(text: 'Card test page', onPressed: (){context.go("/test_page/card");}),
+            AppButtonCarousel(
+              items: const [
+                "Semua",
+                "Elektronik",
+                "Laptop",
+                "Handphone",
+                "Monitor",
+                "Keyboard",
+              ],
+              onTap: (index) {
+                debugPrint("Selected: $index");
+              },
+            ),
 
             AppButton(
-              onPressed: (){context.go('/home_page');},
+              text: 'Card test page',
+              onPressed: () {
+                context.go("/test_page/card");
+              },
+            ),
+
+            AppButton(
+              onPressed: () {
+                context.go('/home_page');
+              },
               text: 'HomePage',
               icon: const FaIcon(FontAwesomeIcons.house),
             ),
