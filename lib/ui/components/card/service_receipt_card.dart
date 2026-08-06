@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../models/service_receipt_item.dart';
+import 'package:ifixied_membership_app/models/service_item.dart';
 
 class ServiceReceiptCard extends StatelessWidget {
-  final ServiceReceiptItem item;
+  final ServiceItem item;
   final VoidCallback? onTapDetail;
 
   const ServiceReceiptCard({
@@ -73,7 +73,7 @@ class ServiceReceiptCard extends StatelessWidget {
 
           // Deskripsi Kerusakan
           Text(
-            item.description,
+            item.issue,
             style: const TextStyle(
               fontSize: 13,
               color: Color(0xFF424242),

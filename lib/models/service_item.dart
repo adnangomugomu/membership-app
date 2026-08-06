@@ -11,6 +11,7 @@ class ServiceItem {
   final String invoice;
   final String date;
   final String issue;
+  final String price;
   final ServiceStatus status;
 
   ServiceItem({
@@ -19,6 +20,7 @@ class ServiceItem {
     required this.date,
     required this.issue,
     required this.status,
+    this.price = '-'
   });
 
   Color get statusBgColor {

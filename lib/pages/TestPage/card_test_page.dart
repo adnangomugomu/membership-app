@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 // Tambahkan alias 'as receipt' dan 'as tracking'
-import 'package:ifixied_membership_app/models/service_receipt_item.dart' as receipt;
-import 'package:ifixied_membership_app/models/service_item.dart' as tracking;
+import 'package:ifixied_membership_app/models/service_item.dart';
 
 import 'package:ifixied_membership_app/ui/components/card/service_receipt_card.dart';
 import 'package:ifixied_membership_app/ui/components/carousel/flash_sale_carousel.dart';
@@ -28,12 +27,12 @@ class _CardTestPageState extends State<CardTestPage> {
               FlashSaleCarousel(),
 
               ServiceReceiptCard(
-                item: receipt.ServiceReceiptItem(
-                  date: '10 Juli 2025',
+                item: ServiceItem(
                   title: 'Macbook Pro A1398',
-                  description: 'Logicboard konslet jalur power',
-                  price: 'Rp1.750.000',
-                  status: receipt.ServiceStatus.proses, // Panggil lewat prefix
+                  invoice: 'SRV28-202507-0175',
+                  date: '10 Juli 2025',
+                  issue: 'Logicboard konslet\njalur power',
+                  status: ServiceStatus.selesai, 
                 ),
               ),
 
@@ -52,12 +51,12 @@ class _CardTestPageState extends State<CardTestPage> {
               const SizedBox(height: 16),
 
               ServiceTrackingCard(
-                item: tracking.ServiceItem(
+                item: ServiceItem(
                   title: 'Macbook Pro A1398',
                   invoice: 'SRV28-202507-0175',
                   date: '10 Juli 2025',
                   issue: 'Logicboard konslet\njalur power',
-                  status: tracking.ServiceStatus.proses, // Panggil lewat prefix
+                  status: ServiceStatus.proses, // Panggil lewat prefix
                 ),
                 onTapAction: () {},
               ),
