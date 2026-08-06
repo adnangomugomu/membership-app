@@ -4,6 +4,7 @@ import 'package:ifixied_membership_app/theme/app_spacing.dart';
 import 'package:ifixied_membership_app/ui/components/app_bar_component.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_field.dart';
 import 'package:ifixied_membership_app/ui/components/card/service_tracking_card.dart';
+import 'package:ifixied_membership_app/ui/components/carousel/button_carrousel.dart';
 
 class TrackingPage extends StatefulWidget {
   const TrackingPage({super.key});
@@ -62,8 +63,22 @@ class _TrackingPage extends State<TrackingPage> {
           child: Column(
             children: [
               AppSpacing.xl,
-              AppTextField(label: "Search",hintText: "Masukkan nomor invoice", isSearchField: true,),
+              AppTextField(
+                label: "Search",
+                hintText: "Masukkan nomor invoice",
+                isSearchField: true,
+              ),
               AppSpacing.xl,
+              AppButtonCarousel(
+                items: const [
+                  "Semua",
+                  "Semua Status",
+                  "Semua Tanggal"
+                ],
+                onTap: (index) {
+                  debugPrint("Selected: $index");
+                },
+              ),
               Column(
                 children: dummyServices
                     .map(

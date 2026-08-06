@@ -6,19 +6,16 @@ import 'package:ifixied_membership_app/theme/app_spacing.dart';
 import 'package:ifixied_membership_app/ui/components/app_bar_component.dart';
 import 'package:ifixied_membership_app/ui/components/app_text_field.dart';
 import 'package:ifixied_membership_app/ui/components/card/service_receipt_card.dart';
+import 'package:ifixied_membership_app/ui/components/carousel/button_carrousel.dart';
 
-
-
-class ReceiptPage extends StatefulWidget{
+class ReceiptPage extends StatefulWidget {
   const ReceiptPage({super.key});
 
   @override
   State<ReceiptPage> createState() => _ReceiptPage();
 }
 
-class _ReceiptPage extends State<ReceiptPage>{
-
-  
+class _ReceiptPage extends State<ReceiptPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +27,18 @@ class _ReceiptPage extends State<ReceiptPage>{
           child: Column(
             children: [
               AppSpacing.xl,
-              AppTextField(label: "Search",hintText: "Masukkan nomor invoice"),
+              AppTextField(
+                label: "Search",
+                hintText: "Masukkan nomor invoice",
+                isSearchField: true,
+              ),
+              AppSpacing.xl,
+              AppButtonCarousel(
+                items: const ["Semua", "Service", "Pembelian"],
+                onTap: (index) {
+                  debugPrint("Selected: $index");
+                },
+              ),
               AppSpacing.xl,
               ServiceReceiptCard(
                 item: ServiceItem(
@@ -38,7 +46,7 @@ class _ReceiptPage extends State<ReceiptPage>{
                   invoice: 'SRV28-202507-0175',
                   date: '10 Juli 2025',
                   issue: 'Logicboard konslet\njalur power',
-                  status: ServiceStatus.selesai, 
+                  status: ServiceStatus.selesai,
                 ),
               ),
             ],
