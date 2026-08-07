@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ifixied_membership_app/models/service_item.dart';
 import 'package:ifixied_membership_app/theme/app_spacing.dart';
 import 'package:ifixied_membership_app/ui/components/app_bar_component.dart';
@@ -108,6 +109,7 @@ class _ReceiptPageState extends State<ReceiptPage> {
                   padding: const EdgeInsets.only(bottom: 16),
                   child: ServiceReceiptCard(
                     item: receipts[i]["item"] as ServiceItem,
+                    onTapDetail: (){context.go('/receipt/detais');},
                   ),
                 );
               }),
