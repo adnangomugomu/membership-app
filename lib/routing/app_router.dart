@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ifixied_membership_app/pages/DetailsPage/tracking_details_page.dart';
 import 'package:ifixied_membership_app/pages/DetailsPage/transaction_details_page.dart';
 import 'package:ifixied_membership_app/pages/Login/login_otp_page.dart';
 import 'package:ifixied_membership_app/pages/Login/login_page_email.dart';
@@ -111,17 +112,22 @@ final appRouter = GoRouter(
               path: '/receipt',
               builder: (context, state) => const ReceiptPage(),
             ),
-            GoRoute(path: '/receipt/detais',
-            builder: (context, state) => const TransactionDetailPage(),)
+            GoRoute(
+              path: '/receipt/detais',
+              builder: (context, state) => const TransactionDetailPage(),
+            ),
           ],
         ),
-
 
         StatefulShellBranch(
           routes: [
             GoRoute(
               path: '/tracking',
               builder: (context, state) => const TrackingPage(),
+            ),
+            GoRoute(
+              path: '/tracking/details',
+              builder: (context, state) => const ServiceDetailTrackingPage(),
             ),
           ],
         ),
