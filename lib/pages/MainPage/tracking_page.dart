@@ -10,10 +10,12 @@ class TrackingPage extends StatefulWidget {
   const TrackingPage({super.key});
 
   @override
-  State<TrackingPage> createState() => _TrackingPage();
+  State<TrackingPage> createState() => _TrackingPageState();
 }
 
-class _TrackingPage extends State<TrackingPage> {
+class _TrackingPageState extends State<TrackingPage> {
+  int _selectedIndex = 0;
+
   final List<ServiceItem> dummyServices = [
     ServiceItem(
       title: 'MacBook Pro A1398',
@@ -57,28 +59,39 @@ class _TrackingPage extends State<TrackingPage> {
     return Scaffold(
       appBar: AppBarComponent(title: "Lacak"),
       body: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(overscroll: false),
+        behavior: ScrollConfiguration.of(context).copyWith(
+          overscroll: false,
+        ),
         child: SingleChildScrollView(
           physics: const ClampingScrollPhysics(),
           child: Column(
             children: [
               AppSpacing.xl,
+
               AppTextField(
                 label: "Search",
                 hintText: "Masukkan nomor invoice",
                 isSearchField: true,
               ),
+
               AppSpacing.xl,
+
               AppButtonCarousel(
+                selectedIndex: _selectedIndex,
                 items: const [
                   "Semua",
                   "Semua Status",
-                  "Semua Tanggal"
+                  "Semua Tanggal",
                 ],
                 onTap: (index) {
-                  debugPrint("Selected: $index");
+                  setState(() {
+                    _selectedIndex = index;
+                  });
                 },
               ),
+
+              AppSpacing.xl,
+
               Column(
                 children: dummyServices
                     .map(

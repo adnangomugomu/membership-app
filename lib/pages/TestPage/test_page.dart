@@ -37,19 +37,19 @@ class _TestPageState extends State<TestPage> {
               },
             ),
 
-            AppButtonCarousel(
-              items: const [
-                "Semua",
-                "Elektronik",
-                "Laptop",
-                "Handphone",
-                "Monitor",
-                "Keyboard",
-              ],
-              onTap: (index) {
-                debugPrint("Selected: $index");
-              },
-            ),
+            // AppButtonCarousel(
+            //   items: const [
+            //     "Semua",
+            //     "Elektronik",
+            //     "Laptop",
+            //     "Handphone",
+            //     "Monitor",
+            //     "Keyboard",
+            //   ],
+            //   onTap: (index) {
+            //     debugPrint("Selected: $index");
+            //   },
+            // ),
 
             AppButton(
               text: 'Card test page',

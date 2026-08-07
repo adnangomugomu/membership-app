@@ -3,11 +3,13 @@ import 'package:ifixied_membership_app/ui/components/app_button.dart';
 
 class AppButtonCarousel extends StatelessWidget {
   final List<String> items;
+  final int selectedIndex;
   final ValueChanged<int>? onTap;
 
   const AppButtonCarousel({
     super.key,
     required this.items,
+    required this.selectedIndex,
     this.onTap,
   });
 
@@ -21,11 +23,15 @@ class AppButtonCarousel extends StatelessWidget {
         itemCount: items.length,
         separatorBuilder: (_, __) => const SizedBox(width: 12),
         itemBuilder: (context, index) {
+          final isSelected = index == selectedIndex;
+
           return SizedBox(
             width: 140,
             child: AppButton(
               text: items[index],
-              onPressed: () => onTap?.call(index),
+              onPressed: isSelected
+                  ? null
+                  : () => onTap?.call(index),
             ),
           );
         },
